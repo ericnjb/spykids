@@ -1,0 +1,55 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :persona_name %><br />
+    <%= f.text_field :persona_name %>
+  </div>
+  <div class="field">
+    <%= f.label :power_1 %><br />
+    <%= f.text_field :power_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :power_2 %><br />
+    <%= f.text_field :power_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :power_3 %><br />
+    <%= f.text_field :power_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_date %><br />
+    <%= f.text_field :birth_date, :value =>
+    	@person.birth_date.blank? ? '' :
+    	@person.birth_date.strftime('%m/%d/%Y') %>
+  </div>
+  <div class="field">
+    <%= f.label :e_mail %><br />
+    <%= f.text_field :e_mail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
